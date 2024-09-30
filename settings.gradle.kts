@@ -11,3 +11,14 @@ plugins {
 }
 
 rootProject.name = "df-plugin-demo"
+
+// include the generated folder as a dependency in the project
+includeBuild("genApisGuru") {
+    dependencySubstitution {
+        substitute(
+            module("guru.apis:apis-guru")
+        ).using(
+            project(":")
+        )
+    }
+}
